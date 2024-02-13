@@ -1,2 +1,4 @@
 env/
 client_secret.json
+deskapp\gmail_token.json
+deskapp\client_secret.json
