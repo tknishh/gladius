@@ -5,7 +5,7 @@ from simplegmail.query import construct_query
 gmail = Gmail()
 
 query_params = {
-    "newer_than": (2, "day")    
+    "newer_than": (3, "month"),    
 }
 
 messages = gmail.get_messages(query=construct_query(query_params))
