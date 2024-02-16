@@ -1,5 +1,6 @@
 from simplegmail import Gmail
 from simplegmail.query import construct_query
+import csv
 
 # Create a Gmail object
 gmail = Gmail()
@@ -10,11 +11,14 @@ query_params = {
 
 messages = gmail.get_messages(query=construct_query(query_params))
 
-for message in messages:
-    print("To: " + message.recipient)
-    print("From: " + message.sender)
-    print("Subject: " + message.subject)
-    print("Date: " + message.date)
-    print("Preview: " + message.snippet)
-    
-    # print("Message Body: " + message.html)
+# Open the CSV file in write mode
+with open('email_results.csv', 'w', newline='', encoding='utf-8') as csvfile:
+    writer = csv.writer(csvfile)
+
+    # Write the headers
+    writer.writerow(['To', 'From', 'Subject', 'Date', 'Preview', 'Message Body'])
+
+    # Iterate over the messages
+    for message in messages:
+        # Write the data for each message
+        writer.writerow([message.recipient, message.sender, message.subject, message.date, message.snippet, message.plain])
