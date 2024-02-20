@@ -1,0 +1,14 @@
+{
+    "manifest_version": 2,
+    "name": "Gmail Data Export",
+    "version": "1.0",
+    "permissions": ["storage", "https://www.googleapis.com/*"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [{
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content.js"]
+    }]
+  }
+  
