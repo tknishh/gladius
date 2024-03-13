@@ -6,7 +6,7 @@ import csv
 gmail = Gmail()
 
 query_params = {
-    "newer_than": (3, "month"),    
+    "newer_than": (3, "day"),    
 }
 
 messages = gmail.get_messages(query=construct_query(query_params))
